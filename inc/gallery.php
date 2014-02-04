@@ -122,6 +122,10 @@ function cleaner_gallery( $output, $attr ) {
 
 	/* Open the gallery <div>. */
 	$output = "\n\t\t\t<div id='gallery-{$id}-{$cleaner_gallery_instance}' class='gallery gallery-{$id}'>";
+	
+	if ($itemtag == 'li') {
+		$output .= "\n\t\t\t\t<ul class='slides'>";
+	}
 
 	/* Loop through each attachment. */
 	foreach ( $attachments as $attachment ) {
@@ -179,6 +183,10 @@ function cleaner_gallery( $output, $attr ) {
 	/* Close gallery row. */
 	if ( $columns > 0 && $i % $columns !== 0 )
 		$output .= "\n\t\t\t</div>";
+		
+	if ($itemtag == 'li') {
+		$output .= "\n\t\t\t\t</ul>";
+ 	}
 
 	/* Close the gallery <div>. */
 	$output .= "\n\t\t\t</div><!-- .gallery -->\n";
